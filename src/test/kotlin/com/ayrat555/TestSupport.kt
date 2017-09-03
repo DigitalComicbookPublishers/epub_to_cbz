@@ -10,7 +10,7 @@ import java.nio.file.Paths
 class TestSupport {
     companion object {
         fun getFile(path: String): Path {
-            val stringPath = Resources.getResource("files/opf_example.epub").path
+            val stringPath = Resources.getResource("files/example.epub").path
 
             return Paths.get(stringPath)
         }

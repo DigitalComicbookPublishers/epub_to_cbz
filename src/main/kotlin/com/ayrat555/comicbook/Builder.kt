@@ -1,12 +1,10 @@
 package com.ayrat555.comicbook
 
-import apple.laf.JRSUIUtils
 import com.ayrat555.domain.Comicbook
 import com.ayrat555.domain.Image
 import com.ayrat555.domain.Opf
-import java.nio.file.Path
 
-class Builder(val zipPath: Path, val opf: Opf) {
+class Builder(val opf: Opf) {
     fun build() : Comicbook {
         val images = findImages()
 

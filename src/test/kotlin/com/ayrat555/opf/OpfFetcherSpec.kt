@@ -8,7 +8,7 @@ import kotlin.test.assertTrue
 
 class OpfFetcherSpec : Spek({
     describe("parse") {
-        val comicbookFilePath = TestSupport.getFile("files/opf_example.epub")
+        val comicbookFilePath = TestSupport.getFile("files/example.epub")
 
         it("fethes opf file from epub document") {
             val opfFetcher = OpfFetcher(comicbookFilePath)
