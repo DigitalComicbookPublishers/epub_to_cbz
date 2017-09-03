@@ -5,8 +5,6 @@ import java.nio.file.Path
 import java.util.zip.ZipEntry
 import java.util.zip.ZipFile
 
-class OpfNotFound(message: String, cause: Exception? = null) : RuntimeException(message, cause)
-
 class OpfFetcher(pathToEpub: Path) {
     private val zip = ZipFile(pathToEpub.toString())
 
@@ -26,6 +24,6 @@ class OpfFetcher(pathToEpub: Path) {
                 return entry
         }
 
-        throw OpfNotFound("Opf file is not found in epub")
+        throw OpfError("Opf file is not found in epub")
     }
 }
