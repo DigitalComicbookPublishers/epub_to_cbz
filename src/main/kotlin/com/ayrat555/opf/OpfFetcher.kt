@@ -24,6 +24,6 @@ class OpfFetcher(pathToEpub: Path) {
                 return entry
         }
 
-        throw OpfError("Opf file is not found in epub")
+        throw OpfException("Opf file is not found in epub")
     }
 }

@@ -33,7 +33,7 @@ class OpfParser(val opfStream: InputStream){
         val manifestElements = document.documentElement.getElementsByTagName("manifest")
 
         if (manifestElements.length == 0)
-            throw OpfError("manifest element is not found in opf file")
+            throw OpfException("manifest element is not found in opf file")
 
         return manifestElements.item(0)
     }
@@ -50,7 +50,7 @@ class OpfParser(val opfStream: InputStream){
         }
 
         if (items.isEmpty())
-            throw OpfError("there is no items in opf file")
+            throw OpfException("there are no items in opf file")
 
         return items.toList()
     }
