@@ -59,9 +59,9 @@ class OpfParser(val opfStream: InputStream){
         val attributes = itemNode.attributes
 
         return Item(
-              href = attributes.getNamedItem("href").toString(),
-                id = attributes.getNamedItem("id").toString(),
-                mediaType = attributes.getNamedItem("media-type").toString()
+              href = attributes.getNamedItem("href").textContent,
+                id = attributes.getNamedItem("id").textContent,
+                mediaType = attributes.getNamedItem("media-type").textContent
         )
     }
 }

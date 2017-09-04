@@ -11,7 +11,7 @@ class Builder(val opf: Opf) {
         return Comicbook(images = images)
     }
 
-    fun findImages() : List<Image> {
+    private fun findImages() : List<Image> {
         val imageItems = opf.items.filter {
             it.mediaType.contains("image")
         }
