@@ -9,13 +9,13 @@ import org.jetbrains.spek.api.dsl.it
 import kotlin.test.assertEquals
 
 class BuilderSpec: Spek({
-    describe("build"){
+    describe("create"){
         val comicbookFilePath = TestSupport.getFile("files/example.epub")
         val opfStream = OpfFetcher(comicbookFilePath).fetchStream()
         val opf = OpfParser(opfStream).parse()
 
         it("builds comicbook") {
-            val comicbook = Builder(opf).build()
+            val comicbook = Factory(opf).create()
 
             assertEquals(9, comicbook.images.size)
         }

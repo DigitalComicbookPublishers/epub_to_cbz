@@ -13,7 +13,7 @@ class WriterSpec: Spek({
         val comicbookFilePath = TestSupport.getFile("files/example.epub")
         val opfStream = OpfFetcher(comicbookFilePath).fetchStream()
         val opf = OpfParser(opfStream).parse()
-        val comicbook = Builder(opf).build()
+        val comicbook = Factory(opf).create()
 
         it("writes comicbook to file") {
             val tempFile = Files.createTempFile("comicbook", ".cbz")

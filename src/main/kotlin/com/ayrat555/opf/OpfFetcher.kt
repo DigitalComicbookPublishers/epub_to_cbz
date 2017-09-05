@@ -1,5 +1,6 @@
 package com.ayrat555.opf
 
+import com.ayrat555.errors.OpfException
 import java.io.InputStream
 import java.nio.file.Path
 import java.util.zip.ZipEntry
@@ -9,7 +10,7 @@ class OpfFetcher(pathToEpub: Path) {
     private val zip = ZipFile(pathToEpub.toString())
 
     companion object {
-        val OPF_EXTENSION = ".opf"
+        const val OPF_EXTENSION = ".opf"
     }
 
     fun fetchStream() : InputStream {

@@ -2,6 +2,7 @@ package com.ayrat555.opf
 
 import com.ayrat555.domain.Item
 import com.ayrat555.domain.Opf
+import com.ayrat555.errors.OpfException
 import org.w3c.dom.Document
 import org.w3c.dom.Node
 import java.io.InputStream
@@ -29,39 +30,33 @@ class OpfParser(val opfStream: InputStream){
         }
     }
 
-    private fun findManifest(document: Document) : Node {
-        val manifestElements = document.documentElement.getElementsByTagName("manifest")
-
-        if (manifestElements.length == 0)
-            throw OpfException("manifest element is not found in opf file")
-
-        return manifestElements.item(0)
-    }
+    private fun findManifest(document: Document) : Node =
+            document.documentElement.getElementsByTagName("manifest")
+                    .also {
+                        if (it.length == 0)
+                            throw OpfException("manifest element is not found in opf file")
+                    }.item(0)
 
     private fun findItems(manifest: Node) : List<Item> {
-        val items: MutableList<Item> = ArrayList()
+        val nodes = manifest.childNodes
 
-        for (item in manifest.childNodes) {
-            if (item.hasAttributes()) {
-                val newItem = itemFromNode(item)
-
-                items.add(newItem)
-            }
-        }
-
-        if (items.isEmpty())
-            throw OpfException("there are no items in opf file")
-
-        return items.toList()
+        return (0 until nodes.length - 1)
+                .map { idx -> nodes.item(idx) }
+                .filter { it.hasAttributes() }
+                .map { itemFromNode(it) }
+                .also {
+                    if (it.isEmpty())
+                        throw OpfException("there are no items in opf file")
+                }
     }
 
-    private fun itemFromNode(itemNode: Node) : Item {
-        val attributes = itemNode.attributes
+    private fun itemFromNode(itemNode: Node) : Item =
+            Item(
+                    href = textContent(itemNode, "href"),
+                    id = textContent(itemNode, "id"),
+                    mediaType = textContent(itemNode, "media-type")
+            )
 
-        return Item(
-              href = attributes.getNamedItem("href").textContent,
-                id = attributes.getNamedItem("id").textContent,
-                mediaType = attributes.getNamedItem("media-type").textContent
-        )
-    }
+    private fun textContent(node: Node, name: String) : String =
+        node.attributes.getNamedItem(name).textContent
 }

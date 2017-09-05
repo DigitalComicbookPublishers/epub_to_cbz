@@ -17,7 +17,7 @@ class Writer(val epubPath: Path, val outputPath: Path, val comicbook: Comicbook)
             ZipOutputStream(fileOutputStream).use { zipOutputStream ->
                 comicbook.images
                         .map {
-                            epubZip.getEntry(it.pathInZip)
+                            epubZip.entries().toList().first { e -> e.name.contains(it.pathInZip) }
                         }.forEach { copyEntry(zipOutputStream, it) }
             }
         }

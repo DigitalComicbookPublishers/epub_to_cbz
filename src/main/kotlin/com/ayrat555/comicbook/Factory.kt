@@ -3,9 +3,10 @@ package com.ayrat555.comicbook
 import com.ayrat555.domain.Comicbook
 import com.ayrat555.domain.Image
 import com.ayrat555.domain.Opf
+import com.ayrat555.errors.ComicbookException
 
-class Builder(val opf: Opf) {
-    fun build() : Comicbook {
+class Factory(val opf: Opf) {
+    fun create() : Comicbook {
         val images = findImages()
 
         return Comicbook(images = images)

@@ -1,6 +1,6 @@
 package com.ayrat555
 
-import com.ayrat555.comicbook.Builder
+import com.ayrat555.comicbook.Factory
 import com.ayrat555.comicbook.Writer
 import com.ayrat555.opf.OpfFetcher
 import com.ayrat555.opf.OpfParser
@@ -10,7 +10,7 @@ class EpubToCbz {
     companion object {
         fun convert(epubPath: Path, outputPath: Path) {
             val opf = fetchOpf(epubPath)
-            val comicbook = Builder(opf).build()
+            val comicbook = Factory(opf).create()
 
             Writer(
                     epubPath = epubPath,
