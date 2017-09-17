@@ -12,16 +12,11 @@ class Factory(val opf: Opf) {
         return Comicbook(images = images)
     }
 
-    private fun findImages() : List<Image> {
-        val imageItems = opf.items.filter {
-            it.mediaType.contains("image")
-        }
-
-        if (imageItems.isEmpty())
-            throw ComicbookException("there are no images in manifest")
-
-        return imageItems.map {
-            Image(pathInZip = it.href)
-        }
-    }
+    private fun findImages() : List<Image> =
+            opf.items.filter {
+                it.mediaType.contains("image")
+            }.also {
+                if (it.isEmpty())
+                    throw ComicbookException("there are no images in manifest")
+            }.map { Image(pathInZip = it.href) }
 }
