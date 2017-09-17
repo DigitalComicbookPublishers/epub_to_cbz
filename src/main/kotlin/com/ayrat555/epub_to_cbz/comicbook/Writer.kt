@@ -1,8 +1,7 @@
-package com.ayrat555.comicbook
+package com.ayrat555.epub_to_cbz.comicbook
 
-import com.ayrat555.domain.Comicbook
+import com.ayrat555.epub_to_cbz.domain.Comicbook
 import java.io.FileOutputStream
-import java.io.InputStream
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.zip.ZipEntry

@@ -1,4 +1,4 @@
-package com.ayrat555
+package com.ayrat555.epub_to_cbz
 
 import com.google.common.io.CharStreams
 import com.google.common.io.Resources

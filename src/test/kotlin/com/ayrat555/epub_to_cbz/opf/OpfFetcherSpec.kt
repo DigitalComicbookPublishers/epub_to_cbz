@@ -1,6 +1,7 @@
-package com.ayrat555.opf
+package com.ayrat555.epub_to_cbz.opf
 
-import com.ayrat555.TestSupport
+import com.ayrat555.epub_to_cbz.TestSupport
+import com.ayrat555.epub_to_cbz.opf.OpfFetcher
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.dsl.describe
 import org.jetbrains.spek.api.dsl.it

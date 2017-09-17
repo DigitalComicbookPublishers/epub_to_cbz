@@ -1,0 +1,227 @@
+build:
+  failThreshold: 0
+
+potential-bugs:
+  active: true
+  DuplicateCaseInWhenExpression:
+    active: true
+  EqualsAlwaysReturnsTrueOrFalse:
+    active: true
+  EqualsWithHashCodeExist:
+    active: true
+  WrongEqualsTypeParameter:
+    active: true
+  ExplicitGarbageCollectionCall:
+    active: true
+  UnreachableCode:
+    active: true
+  LateinitUsage:
+    active: true
+  UnsafeCallOnNullableType:
+    active: true
+  UnsafeCast:
+    active: true
+  UselessPostfixExpression:
+    active: true
+
+performance:
+  active: true
+  ForEachOnRange:
+    active: true
+  SpreadOperator:
+    active: true
+  UnnecessaryTemporaryInstantiation:
+    active: true
+
+exceptions:
+  active: true
+  ExceptionRaisedInUnexpectedLocation:
+    active: true
+    methodNames: 'toString,hashCode,equals,finalize'
+  SwallowedException:
+    active: true
+  TooGenericExceptionCaught:
+    active: false
+    exceptions:
+      - ArrayIndexOutOfBoundsException
+      - Error
+      - Exception
+      - IllegalMonitorStateException
+      - IndexOutOfBoundsException
+      - InterruptedException
+      - NullPointerException
+      - RuntimeException
+  TooGenericExceptionThrown:
+    active: true
+    exceptions:
+      - Throwable
+      - ThrowError
+      - ThrowException
+      - ThrowNullPointerException
+      - ThrowRuntimeException
+      - ThrowThrowable
+  InstanceOfCheckForException:
+    active: true
+  IteratorNotThrowingNoSuchElementException:
+    active: true
+  PrintExceptionStackTrace:
+    active: true
+  RethrowCaughtException:
+    active: false
+  ReturnFromFinally:
+    active: true
+  ThrowingExceptionFromFinally:
+    active: true
+  ThrowingExceptionInMain:
+    active: true
+  ThrowingNewInstanceOfSameException:
+    active: true
+
+empty-blocks:
+  active: true
+  EmptyCatchBlock:
+    active: true
+  EmptyClassBlock:
+    active: true
+  EmptyDefaultConstructor:
+    active: true
+  EmptyDoWhileBlock:
+    active: true
+  EmptyElseBlock:
+    active: true
+  EmptyFinallyBlock:
+    active: true
+  EmptyForBlock:
+    active: true
+  EmptyFunctionBlock:
+    active: true
+  EmptyIfBlock:
+    active: true
+  EmptyInitBlock:
+    active: true
+  EmptySecondaryConstructor:
+    active: true
+  EmptyWhenBlock:
+    active: true
+  EmptyWhileBlock:
+    active: true
+
+complexity:
+  active: true
+  LongMethod:
+    threshold: 20
+  LongParameterList:
+    threshold: 5
+  LargeClass:
+    threshold: 150
+  ComplexMethod:
+    threshold: 10
+  TooManyFunctions:
+    threshold: 10
+  ComplexCondition:
+    threshold: 3
+  LabeledExpression:
+    active: true
+  StringLiteralDuplication:
+    active: true
+    threshold: 2
+    ignoreAnnotation: false
+    excludeStringsWithLessThan5Characters: false
+    ignoreStringsRegex: '$^'
+
+style:
+  active: true
+  ReturnCount:
+    active: true
+    max: 4
+  NewLineAtEndOfFile:
+    active: true
+  OptionalAbstractKeyword:
+    active: true
+  OptionalWhenBraces:
+    active: true
+  EqualsNullCall:
+    active: true
+  ForbiddenComment:
+    active: true
+    values: 'TODO:,FIXME:,STOPSHIP:'
+  ForbiddenImport:
+    active: false
+    imports: '*'
+  PackageDeclarationStyle:
+    active: true
+  ModifierOrder:
+    active: true
+  MagicNumber:
+    active: false
+    ignoreNumbers: '-1,0,1,2'
+    ignoreHashCodeFunction: false
+    ignorePropertyDeclaration: true
+    ignoreAnnotation: false
+  WildcardImport:
+    active: true
+  SafeCast:
+    active: true
+  MaxLineLength:
+    active: true
+    maxLineLength: 120
+    excludePackageStatements: false
+    excludeImportStatements: false
+  PackageNaming:
+    active: true
+    packagePattern: '^[a-z]+(\.[a-z][a-z0-9_]*)*$'
+  ClassNaming:
+    active: false
+    classPattern: '[A-Z$][a-zA-Z$]*'
+  EnumNaming:
+    active: true
+    enumEntryPattern: '^[A-Z$][a-zA-Z_$]*$'
+  FunctionNaming:
+    active: true
+    functionPattern: '^[a-z$][a-zA-Z$0-9]*$'
+  FunctionMaxLength:
+    active: true
+    maximumFunctionNameLength: 30
+  FunctionMinLength:
+    active: true
+    minimumFunctionNameLength: 3
+  VariableNaming:
+    active: true
+    variablePattern: '^(_)?[a-z$][a-zA-Z$0-9]*$'
+  ConstantNaming:
+    active: true
+    constantPattern: '^([A-Z_]*|serialVersionUID)$'
+  VariableMaxLength:
+    active: true
+    maximumVariableNameLength: 30
+  VariableMinLength:
+    active: true
+    minimumVariableNameLength: 2
+  ForbiddenClassName:
+    active: true
+    forbiddenName: ''
+  ProtectedMemberInFinalClass:
+    active: true
+  UnnecessaryParentheses:
+    active: false
+  DataClassContainsFunctions:
+    active: false
+  UseDataClass:
+    active:  true
+  UnnecessaryAbstractClass:
+    active: true
+
+comments:
+  active: false
+  CommentOverPrivateMethod:
+    active: true
+  CommentOverPrivateProperty:
+    active: true
+  UndocumentedPublicClass:
+    active: false
+    searchInNestedClass: true
+    searchInInnerClass: true
+    searchInInnerObject: true
+    searchInInnerInterface: true
+  UndocumentedPublicFunction:
+    active: true

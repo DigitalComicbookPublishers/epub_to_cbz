@@ -1,13 +1,14 @@
-package com.ayrat555
+package com.ayrat555.epub_to_cbz
 
-import com.ayrat555.comicbook.Factory
-import com.ayrat555.comicbook.Writer
-import com.ayrat555.opf.OpfFetcher
-import com.ayrat555.opf.OpfParser
+import com.ayrat555.epub_to_cbz.comicbook.Factory
+import com.ayrat555.epub_to_cbz.comicbook.Writer
+import com.ayrat555.epub_to_cbz.opf.OpfFetcher
+import com.ayrat555.epub_to_cbz.opf.OpfParser
 import java.nio.file.Path
 
 class EpubToCbz {
     companion object {
+        @JvmStatic
         fun convert(epubPath: Path, outputPath: Path) {
             val opf = fetchOpf(epubPath)
             val comicbook = Factory(opf).create()
@@ -20,6 +21,7 @@ class EpubToCbz {
 
         }
 
+        @JvmStatic
         private fun fetchOpf(epubPath: Path) =
             OpfFetcher(epubPath).fetchStream().use {
                 OpfParser(it).parse()

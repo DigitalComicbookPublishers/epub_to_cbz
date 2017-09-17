@@ -1,9 +1,9 @@
-package com.ayrat555.comicbook
+package com.ayrat555.epub_to_cbz.comicbook
 
-import com.ayrat555.domain.Comicbook
-import com.ayrat555.domain.Image
-import com.ayrat555.domain.Opf
-import com.ayrat555.errors.ComicbookException
+import com.ayrat555.epub_to_cbz.domain.Comicbook
+import com.ayrat555.epub_to_cbz.domain.Image
+import com.ayrat555.epub_to_cbz.domain.Opf
+import com.ayrat555.epub_to_cbz.errors.ComicbookException
 
 class Factory(val opf: Opf) {
     fun create() : Comicbook {

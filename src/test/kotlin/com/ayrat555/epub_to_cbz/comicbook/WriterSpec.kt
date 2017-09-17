@@ -1,8 +1,10 @@
-package com.ayrat555.comicbook
+package com.ayrat555.epub_to_cbz.comicbook
 
-import com.ayrat555.TestSupport
-import com.ayrat555.opf.OpfFetcher
-import com.ayrat555.opf.OpfParser
+import com.ayrat555.epub_to_cbz.comicbook.Factory
+import com.ayrat555.epub_to_cbz.comicbook.Writer
+import com.ayrat555.epub_to_cbz.TestSupport
+import com.ayrat555.epub_to_cbz.opf.OpfFetcher
+import com.ayrat555.epub_to_cbz.opf.OpfParser
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.dsl.describe
 import org.jetbrains.spek.api.dsl.it

@@ -1,14 +1,14 @@
-package com.ayrat555.opf
+package com.ayrat555.epub_to_cbz.opf
 
-import com.ayrat555.domain.Item
-import com.ayrat555.domain.Opf
-import com.ayrat555.errors.OpfException
+import com.ayrat555.epub_to_cbz.domain.Item
+import com.ayrat555.epub_to_cbz.domain.Opf
+import com.ayrat555.epub_to_cbz.errors.OpfException
 import org.w3c.dom.Document
 import org.w3c.dom.Node
 import java.io.InputStream
 import javax.xml.parsers.DocumentBuilderFactory
 
-class OpfParser(val opfStream: InputStream){
+class OpfParser(private val opfStream: InputStream){
     fun parse() : Opf {
         val document = generateDomDocument()
         val manifest = findManifest(document)

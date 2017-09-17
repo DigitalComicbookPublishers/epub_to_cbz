@@ -1,6 +1,6 @@
-package com.ayrat555.opf
+package com.ayrat555.epub_to_cbz.opf
 
-import com.ayrat555.errors.OpfException
+import com.ayrat555.epub_to_cbz.errors.OpfException
 import java.io.InputStream
 import java.nio.file.Path
 import java.util.zip.ZipEntry

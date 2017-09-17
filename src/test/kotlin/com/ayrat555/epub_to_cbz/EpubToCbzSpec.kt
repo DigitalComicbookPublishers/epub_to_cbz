@@ -1,10 +1,10 @@
-package com.ayrat555
+package com.ayrat555.epub_to_cbz
 
+import com.ayrat555.epub_to_cbz.EpubToCbz
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.dsl.describe
 import org.jetbrains.spek.api.dsl.it
 import java.nio.file.Files
-import java.nio.file.Paths
 import java.util.zip.ZipFile
 import kotlin.test.assertEquals
 
